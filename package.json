@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "huskyboxd-server",
+  "version": "1.0.0",
+  "description": "server of huskyboxd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuoZhao/huskyboxd-server.git"
+  },
+  "author": "DuoZhao, ZhengyanShi, JiedongLiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DuoZhao/huskyboxd-server/issues"
+  },
+  "homepage": "https://github.com/DuoZhao/huskyboxd-server#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express-session": "^1.17.2"
+  }
+}
