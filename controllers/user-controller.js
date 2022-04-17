@@ -1,4 +1,5 @@
 import * as userDao from "../dao/users-dao.js";
+import mongoose from "mongoose";
 
 const findAllUsers = async (req, res) => {
     const users = await userDao.findAllUsers()
@@ -6,8 +7,12 @@ const findAllUsers = async (req, res) => {
 }
 const findUserById = async (req, res) => {
     const userId = req.params['id']
+    if (!mongoose.isObjectIdOrHexString(userId)) {
+        res.sendStatus(404);
+        return;
+    }
     const user = await userDao.findUserById(userId)
-    if(user) {
+    if (user) {
         res.json(user)
     } else {
         res.sendStatus(404)
@@ -16,7 +21,7 @@ const findUserById = async (req, res) => {
 const findUserByEmail = async (req, res) => {
     const email = req.params.email
     const user = await userDao.findUserByEmail(email)
-    if(user) {
+    if (user) {
         res.json(user)
     } else {
         res.sendStatus(404)
@@ -28,7 +33,7 @@ const findUserByCredentials = async (req, res) => {
     const user = await userDao.findUserByCredentials(
         email, password
     )
-    if(user) {
+    if (user) {
         res.sendStatus(200)
     } else {
         res.sendStatus(403)
