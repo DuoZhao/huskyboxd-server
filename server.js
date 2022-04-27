@@ -1,4 +1,5 @@
 import userController from "./controllers/user-controller.js";
+import authController from "./controllers/auth-controller.js"
 import mongoose from "mongoose";
 import cors from 'cors';
 import express from "express";
@@ -15,6 +16,7 @@ app.use(session({
 app.use(express.json());
 
 userController(app);
+authController(app);
 app.get('/', (request, response) => {
     response.send("Welcome to WebDev");
 });
