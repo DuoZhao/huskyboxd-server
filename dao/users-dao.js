@@ -25,3 +25,16 @@ export const updateUser = (id, user) =>
     );
 
 export const deleteUser = (id) => userModel.deleteOne({_id: id})
+
+
+export const updateFavoriteMovie = (id, m_id) =>
+    userModel.updateOne(
+        {_id: id},
+        {$addToSet: {'favorite_movie': m_id}}
+    );
+
+export const updateHistoryMovie = (id, m_id) =>
+    userModel.updateOne(
+        {_id: id},
+        {$addToSet: {'history_movie': m_id}}
+    );

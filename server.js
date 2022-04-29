@@ -8,11 +8,13 @@ import session from "express-session";
 const app = express();
 // mongoose.connect('mongodb+srv://giuseppi:supersecretpassword@cluster0.m8jeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 mongoose.connect('mongodb://localhost:27017/huskyboxd');
+
 app.use(cors());
 app.use(session({
     secret: 'SECRETO',
     cookie: {secure: false}
 }));
+
 app.use(express.json());
 
 userController(app);
