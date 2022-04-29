@@ -16,9 +16,8 @@ const usersSchema = mongoose.Schema({
     followersCount: {type: Number, default: 0},
     favorite_movie:{type: Array, default: []},
     recent_movie:{type: Array, default: []},
-    history_movie:{type: Array, default: []}
-
-
-
+    history_movie:{type: Array, default: []},
+    realID: {type: String},
+    realUser: {type: Boolean, default: false}
 }, {collection: 'users'});
 export default usersSchema;

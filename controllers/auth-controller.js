@@ -44,6 +44,7 @@ const findUsers = (req, res) => {
 
 export default (app) => {
     app.post('/api/signup', signup);
+    app.post('/api/signuprealid', signup);
     app.post('/api/profile', profile);
     app.post('/api/signin', login);
     app.post('/api/logout', logout);
