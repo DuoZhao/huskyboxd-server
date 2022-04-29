@@ -7,7 +7,6 @@ const usersSchema = mongoose.Schema({
     bannerPicture:{type: String, default: ""},
     profilePicture: {type: String, default: ""},
     bio: {type: String, default: ""},
-    website: {type: String, unique: true, default: ""},
     location: {type: String, default: ""},
     films: {type: Number, default: 0},
     thisyear: {type: Number , default: 0},
