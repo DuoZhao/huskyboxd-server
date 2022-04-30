@@ -12,7 +12,6 @@ const findMovieByimdbID = async (req, res) => {
     const imdbID = req.params["id"]
     const movie = await movieDao.findMovieByimdbID(imdbID)
 
-
     res.json(movie);
 }
 
