@@ -1,6 +1,7 @@
 import * as movieDao from "../dao/movies-dao.js";
 import mongoose from "mongoose";
 
+// test
 const findAllMovies = async (req, res) => {
     const ms = await movieDao.findAllMovies()
     res.json(ms)
