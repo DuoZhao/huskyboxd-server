@@ -51,6 +51,13 @@ const createUser = async (req, res) => {
     const insertedUser = await userDao.createUser(user)
     res.json(insertedUser)
 }
+// const updateUser = async (req, res) => {
+//     const user = req.body
+//     const userId = req.params['id']
+//     const status = await userDao.updateUser(userId, user)
+//     res.json(status)
+// }
+
 
 const updateUser = async (req, res) => {
     const user = req.body
@@ -58,6 +65,8 @@ const updateUser = async (req, res) => {
     const status = await userDao.updateUser(userId, user)
     res.json(status)
 }
+
+
 
 const deleteUser = async (req, res) => {
     const userId = req.params['id']
