@@ -1,7 +1,5 @@
 import * as movieDao from "../dao/movies-dao.js";
 import mongoose from "mongoose";
-import * as userDao from "../dao/users-dao.js";
-
 
 const findAllMovies = async (req, res) => {
     const ms = await movieDao.findAllMovies()
@@ -20,7 +18,6 @@ const createMovie = async (req, res) => {
     const new_movie = await movieDao.createMovie(movie)
     res.json(new_movie)
 }
-
 
 export default (app) => {
     app.get('/api/movies', findAllMovies);
