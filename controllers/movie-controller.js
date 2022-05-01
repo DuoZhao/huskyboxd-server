@@ -20,9 +20,24 @@ const createMovie = async (req, res) => {
     res.json(new_movie)
 }
 
+function shuffle (array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+};
+
+const getRandomMovie = async (req, res) => {
+    const n = req.params["size"];
+    const rm = await movieDao.getRandomMovie(n);
+    shuffle(rm)
+    res.json(rm)
+}
+
+
 export default (app) => {
     app.get('/api/movies', findAllMovies);
     app.get('/api/movies/:id', findMovieByimdbID);
     app.post('/api/movies', createMovie);
-
+    app.get('/api/movies/random/:size', getRandomMovie);
 }

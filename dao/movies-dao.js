@@ -6,3 +6,6 @@ export const findAllMovies = () => movieModel.find();
 export const findMovieByimdbID = (imdbID) => movieModel.findOne({imdbID});
 
 export const createMovie = (movie) => movieModel.create(movie)
+
+export const getRandomMovie = (n) => movieModel.find().limit(n);
+
