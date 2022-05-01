@@ -66,7 +66,12 @@ const updateUser = async (req, res) => {
     res.json(status)
 }
 
-
+const updateUserReal = async (req, res) => {
+    const user = req.body
+    const userId = req.params['id']
+    const status = await userDao.updateUserReal(userId, user)
+    res.json(status)
+}
 
 const deleteUser = async (req, res) => {
     const userId = req.params['id']

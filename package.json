@@ -19,7 +19,8 @@
   "homepage": "https://github.com/DuoZhao/huskyboxd-server#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "mongoose": "^6.3.0"
+    "mongoose": "^6.3.0",
+    "mongoose-random": "^0.1.1"
   },
   "devDependencies": {
     "cors": "^2.8.5",
