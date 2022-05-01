@@ -6,3 +6,5 @@ export const findAllMovies = () => movieModel.find();
 export const findMovieByimdbID = (imdbID) => movieModel.findOne({imdbID});
 
 export const createMovie = (movie) => movieModel.create(movie)
+
+export const updateMovieComment = (imdbID, comment) => movieModel.updateOne({imdbID: imdbID}, {$push: {"history_comment": comment}})

@@ -3,7 +3,7 @@ import * as userDao from "../dao/users-dao.js";
 const signup = async (req, res) => {
     const credentials = req.body;
     const existingUser = await userDao.findUserByEmail(credentials.email)
-    if(existingUser) {
+    if (existingUser) {
         return res.sendStatus(403)
     } else {
         const newUser = await userDao.createUser(credentials)
@@ -24,10 +24,15 @@ const login = async (req, res) => {
     res.sendStatus(403);
 }
 
-const profile = (req, res) => {
-    const profile = req.session['profile']
-    if(profile) {
-        res.json(profile)
+const profile = async (req, res) => {
+    let profile = req.session['profile']
+    if (profile) {
+        profile = await userDao.findUserByCredentials(profile.email, profile.password)
+        if (profile) {
+            res.json(profile)
+        } else {
+            res.sendStatus(503)
+        }
     } else {
         res.sendStatus(503)
     }

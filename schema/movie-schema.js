@@ -29,10 +29,7 @@ const movieSchema = mongoose.Schema({
     history_comment:
         {
             type: Array,
-            default: [
-                {_id: {type: String}, comment: String, profilePicture: {type: String }, likes: Number},
-                {_id: {type: String}, comment: String, profilePicture: {type: String}, likes: Number}
-            ]
+            default: []
         },
 
 }, {collection: 'movies'});
