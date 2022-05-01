@@ -11,3 +11,4 @@ export const updateMovieComment = (imdbID, comment) => movieModel.updateOne({imd
 
 export const getRandomMovie = (n) => movieModel.find().limit(n);
 
+export const findMovieIDList = (movieList) => movieModel.find({imdbID: {$in: movieList}});

@@ -79,20 +79,16 @@ const deleteUser = async (req, res) => {
     res.json(status)
 }
 
-
-// Update : 04/28/2022 to add history and favorite movie
 const updateFavoriteMovie = async (req, res) => {
-    const userId = req.params['id']
-    const movieId = req.body["favorite_movie"];
-    console.log("fjdsljflsdjflsd");
+    const userId = req.params['id'];
+    const movieId = req.body["movieID"];
     const status = await userDao.updateFavoriteMovie(userId, movieId)
     res.json(status);
-
 }
 
 const updateHistoryMovie = async (req, res) => {
     const userId = req.params['id']
-    const movieId = req.body
+    const movieId = req.body["movieID"];
     const status = await userDao.updateHistoryMovie(userId, movieId)
     res.json(status);
 

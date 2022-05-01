@@ -42,14 +42,14 @@ export const updateUserReal = (id, user) =>
 export const deleteUser = (id) => userModel.deleteOne({_id: id})
 
 
-export const updateFavoriteMovie = (id, m_id) =>
+export const updateFavoriteMovie = (id, movieId) =>
     userModel.updateOne(
         {_id: id},
-        {$addToSet: {'favorite_movie': m_id}}
+        {$addToSet: {'favorite_movie': movieId}}
     );
 
-export const updateHistoryMovie = (id, m_id) =>
+export const updateHistoryMovie = (id, movieId) =>
     userModel.updateOne(
         {_id: id},
-        {$addToSet: {'history_movie': m_id}}
+        {$addToSet: {'history_movie': movieId}}
     );

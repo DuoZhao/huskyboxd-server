@@ -5,12 +5,12 @@ import mongoose from "mongoose";
 import cors from 'cors';
 import express from "express";
 import session from "express-session";
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
+// const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
 
 const app = express();
 // mongoose.connect('mongodb+srv://giuseppi:supersecretpassword@cluster0.m8jeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-// mongoose.connect('mongodb://localhost:27017/huskyboxd');
-mongoose.connect(CONNECTION_STRING);
+mongoose.connect('mongodb://localhost:27017/huskyboxd');
+// mongoose.connect(CONNECTION_STRING);
 
 app.use(cors({
     credentials: true,
