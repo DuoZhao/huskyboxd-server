@@ -24,6 +24,21 @@ export const updateUser = (id, user) =>
         // }
     );
 
+
+export const updateUserReal = (id, user) =>
+    userModel.updateOne(
+        {_id: id},
+        { $set: user}
+        // {
+        //   $set: {
+        //     email: user.email,
+        //     password: user.password,
+        //     firstName: user.firstName,
+        //     lastName: user.lastName
+        //   }
+        // }
+    );
+
 export const deleteUser = (id) => userModel.deleteOne({_id: id})
 
 
