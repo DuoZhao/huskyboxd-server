@@ -34,12 +34,17 @@ const getRandomMovie = async (req, res) => {
     res.json(rm)
 }
 
-
 const updateMovieComment = async (req, res) => {
     const imdbID = req.params['id'];
     const comment = req.body;
     const movie = await movieDao.updateMovieComment(imdbID, comment);
     res.json(movie);
+}
+
+const findMovieIDList = async (req, res) => {
+    const movieIDList = req.body["movieList"];
+    const movie = await movieDao.findMovieIDList(movieIDList);
+    res.json(movie)
 }
 
 export default (app) => {
@@ -48,4 +53,5 @@ export default (app) => {
     app.post('/api/movies', createMovie);
     app.get('/api/movies/random/:size', getRandomMovie);
     app.put('/api/movies/update/:id', updateMovieComment);
+    app.post('/api/movies/list', findMovieIDList);
 }
